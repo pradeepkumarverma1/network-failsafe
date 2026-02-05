@@ -1,0 +1,31 @@
+name: Build and Release
+on:
+  push:
+    tags:
+      - 'v*' # Triggers on v1.0.1, v1.0.2-beta, etc.
+
+jobs:
+  release:
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: [windows-latest] # Focus on Windows as requested
+
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Install Dependencies
+        run: |
+          npm install
+          cd ui && npm install && npm run build # Builds your React UI first
+        
+      - name: Build and Publish Electron App
+        run: npm run build
+        env:
+          GITHUB_TOKEN: ${{ secrets.GH_TOKEN }} # Uses the token you created

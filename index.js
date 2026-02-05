@@ -1,5 +1,6 @@
 const { app, Tray, Menu, ipcMain, BrowserWindow, nativeImage } = require('electron');
 const path = require('path');
+const { autoUpdater } = require("electron-updater");
 
 const network = require('./core/network');
 const { loadConfig, saveConfig } = require('./core/config');
@@ -103,6 +104,13 @@ app.whenReady().then(() => {
     failover.start(relayLog);
     createWindow();
     createTray();
+
+    autoUpdater.checkForUpdatesAndNotify();
+
+    // Optional: Log update progress to your new UI console
+    autoUpdater.on('update-available', () => relayLog("New update found! Downloading..."));
+    autoUpdater.on('update-downloaded', () => relayLog("Update ready. Restart to apply."));
+
     if (process.platform === 'darwin') app.dock.hide();
 });
 

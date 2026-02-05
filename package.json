@@ -1,15 +1,61 @@
 {
   "name": "network-failsafe",
-  "version": "1.0.0",
+  "version": "1.0.1-beta",
   "description": "A network manager that will switch your networks based on priority and saves you time in manually switching between your wifi or hotspots",
   "main": "index.js",
-  "scripts": {
-    "start": "electron .",
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
   "author": "Pradeep Kumar Verma",
   "license": "ISC",
+  "scripts": {
+    "start": "electron .",
+    "build": "electron-builder build --publish always"
+  },
   "devDependencies": {
-    "electron": "^40.1.0"
+    "electron": "^40.1.0",
+    "electron-builder": "^26.7.0",
+    "electron-updater": "^6.7.3"
+  },
+  "build": {
+    "appId": "com.pradeep.failsafe",
+    "productName": "NetworkFailSafe",
+    "copyright": "Copyright © 2026 Pradeep Kumar Verma",
+    "directories": {
+      "output": "release"
+    },
+    "publish": [
+      {
+        "provider": "github",
+        "owner": "pradeepkumarverma1",
+        "repo": "network-failsafe"
+      }
+    ],
+    "win": {
+      "target": [
+        {
+          "target": "nsis",
+          "arch": [
+            "x64"
+          ]
+        }
+      ],
+      "icon": "icon.png",
+      "requestedExecutionLevel": "requireAdministrator"
+    },
+    "nsis": {
+      "oneClick": true,
+      "perMachine": true,
+      "allowElevation": true,
+      "installerIcon": "icon.png",
+      "uninstallerIcon": "icon.png",
+      "createDesktopShortcut": true,
+      "runAfterFinish": true
+    },
+    "linux": {
+      "target": [
+        "AppImage",
+        "deb"
+      ],
+      "category": "Network",
+      "icon": "icon.png"
+    }
   }
 }
