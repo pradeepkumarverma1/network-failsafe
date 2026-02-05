@@ -1,0 +1,15 @@
+{
+  "name": "network-failsafe",
+  "version": "1.0.0",
+  "description": "A network manager that will switch your networks based on priority and saves you time in manually switching between your wifi or hotspots",
+  "main": "index.js",
+  "scripts": {
+    "start": "electron .",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Pradeep Kumar Verma",
+  "license": "ISC",
+  "devDependencies": {
+    "electron": "^40.1.0"
+  }
+}
