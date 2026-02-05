@@ -1,6 +1,6 @@
 {
   "name": "network-failsafe",
-  "version": "1.0.1-beta",
+  "version": "1.0.4-beta",
   "description": "A network manager that will switch your networks based on priority and saves you time in manually switching between your wifi or hotspots",
   "main": "index.js",
   "author": "Pradeep Kumar Verma",
@@ -8,6 +8,9 @@
   "scripts": {
     "start": "electron .",
     "build": "electron-builder build --publish always"
+  },
+  "dependencies": {
+    "electron-updater": "^6.7.3"
   },
   "devDependencies": {
     "electron": "^40.1.0",
@@ -24,7 +27,8 @@
       {
         "provider": "github",
         "owner": "pradeepkumarverma1",
-        "repo": "network-failsafe"
+        "repo": "network-failsafe",
+        "releaseType": "draft"
       }
     ],
     "win": {
@@ -37,6 +41,7 @@
         }
       ],
       "icon": "icon.ico",
+      "artifactName": "${productName}-Setup-${version}.${ext}",
       "requestedExecutionLevel": "requireAdministrator"
     },
     "nsis": {
@@ -56,8 +61,5 @@
       "category": "Network",
       "icon": "icon.png"
     }
-  },
-  "dependencies": {
-    "electron-updater": "^6.7.3"
   }
 }
