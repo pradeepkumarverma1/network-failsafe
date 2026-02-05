@@ -37,15 +37,15 @@
           ]
         }
       ],
-      "icon": "icon.png",
+      "icon": "icon.ico",
       "requestedExecutionLevel": "requireAdministrator"
     },
     "nsis": {
       "oneClick": true,
       "perMachine": true,
       "allowElevation": true,
-      "installerIcon": "icon.png",
-      "uninstallerIcon": "icon.png",
+      "installerIcon": "icon.ico",
+      "uninstallerIcon": "icon.ico",
       "createDesktopShortcut": true,
       "runAfterFinish": true
     },
