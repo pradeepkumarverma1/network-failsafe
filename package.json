@@ -11,8 +11,7 @@
   },
   "devDependencies": {
     "electron": "^40.1.0",
-    "electron-builder": "^26.7.0",
-    "electron-updater": "^6.7.3"
+    "electron-builder": "^26.7.0"
   },
   "build": {
     "appId": "com.pradeep.failsafe",
@@ -57,5 +56,8 @@
       "category": "Network",
       "icon": "icon.png"
     }
+  },
+  "dependencies": {
+    "electron-updater": "^6.7.3"
   }
 }
