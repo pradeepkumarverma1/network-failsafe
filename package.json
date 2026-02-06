@@ -1,6 +1,6 @@
 {
   "name": "network-failsafe",
-  "version": "1.0.4-beta",
+  "version": "1.0.5-beta",
   "description": "A network manager that will switch your networks based on priority and saves you time in manually switching between your wifi or hotspots",
   "main": "index.js",
   "author": "Pradeep Kumar Verma",
@@ -18,6 +18,12 @@
   },
   "build": {
     "appId": "com.pradeep.failsafe",
+    "files": [
+      "index.js",
+      "icon.png",
+      "core/**/*",
+      "ui/dist/**/*"
+    ],
     "productName": "NetworkFailSafe",
     "copyright": "Copyright © 2026 Pradeep Kumar Verma",
     "directories": {

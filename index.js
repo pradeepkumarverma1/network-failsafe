@@ -31,7 +31,7 @@ function createWindow() {
     mainWindow = new BrowserWindow({
         width: 950,
         height: 650,
-        show: false,
+        show: true,
         frame: false,         // Removes the OS window frame
         titleBarStyle: 'hidden', // Ensures controls are hidden on macOS
         webPreferences: {
@@ -47,7 +47,8 @@ function createWindow() {
     if (isDev) {
         mainWindow.loadURL('http://localhost:5173');
     } else {
-        mainWindow.loadFile(path.join(__dirname, 'ui/dist/index.html'));
+        const indexPath = path.join(__dirname, 'ui', 'dist', 'index.html');
+        mainWindow.loadFile(indexPath);
     }
 
     mainWindow.on('close', (e) => {
